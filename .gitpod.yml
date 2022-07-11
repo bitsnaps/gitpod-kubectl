@@ -1,1 +1,23 @@
+# Take control by using your own custom Dockerfile
+#image:
+#  file: .gitpod.Dockerfile
 image: quadeare/gitpod-kubectl:latest
+
+ports:
+  - port: 8080
+    visibility: public
+
+# In case using Gitpod's secret environnement variable
+tasks:
+#  - name: Set Glados K8s context
+#    command: echo $K8S_CTX | base64 -d > ~/.kube/config
+  - name: Print out kubectl version
+    command: kubectl version --output=json
+#  - name: Install kubeapps
+#    command: |
+#      helm repo add bitnami https://charts.bitnami.com/bitnami
+#      kubectl create namespace kubeapps
+#      helm install kubeapps --namespace kubeapps bitnami/kubeapps
+
+
+
